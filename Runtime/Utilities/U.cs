@@ -16,6 +16,11 @@ public static class U {
         return obj;
     }
 
+    public static GameObject CreateGameObject(string name, System.Type[] components) {
+        GameObject obj = new GameObject(name, components);
+        return obj;
+    }
+
     public static GameObject CreateGameObject(string name, Transform parent, System.Type[] components) {
         GameObject obj = new GameObject(name, components);
         obj.transform.parent = parent;
@@ -26,13 +31,24 @@ public static class U {
         return AddOrGetComponent<T>(new GameObject());
     }
 
+    public static T CreateGameObject<T>(string name) where T : Component {
+        return AddOrGetComponent<T>(CreateGameObject(name));
+    }
+
+    public static T CreateGameObject<T>(string name, System.Type[] components) where T : Component {
+        return AddOrGetComponent<T>(CreateGameObject(name, components));
+    }
+
     public static T CreateGameObject<T>(string name, Transform parent) where T : Component {
-        GameObject obj = CreateGameObject(name, parent);
-        return AddOrGetComponent<T>(obj);
+        return AddOrGetComponent<T>(CreateGameObject(name, parent));
+    }
+
+    public static T CreateGameObject<T>(string name, Transform parent, System.Type[] components) where T : Component {
+        return AddOrGetComponent<T>(CreateGameObject(name, parent, components));
     }
 
     /*
-     * Instanciation
+     * Instantiation
      */
 
     public static T InstantiateWithComponent<T>(GameObject original) where T : Component {
@@ -43,22 +59,6 @@ public static class U {
     public static T InstantiateWithComponent<T>(GameObject original, Transform parent) where T : Component {
         GameObject obj = GameObject.Instantiate<GameObject>(original, parent);
         return AddOrGetComponent<T>(obj);
-    }
-
-    /*
-     * Component Based GameObject Creation
-     */
-    
-    public static T CreateGameObject<T>(string name) {
-        return new GameObject(name, typeof(T)).GetComponent<T>();
-    }
-
-    public static T CreateGameObject<T>(string name, System.Action<T> func) {
-        return Tap(new GameObject(name, typeof(T)).GetComponent<T>(), func);
-    }
-
-    public static T CreateGameObject<T>(string name, System.Type[] components) {
-        return new GameObject(name, components).GetComponent<T>();
     }
 
     /*

@@ -28,6 +28,15 @@ namespace BBUnity {
             set { transform.rotation = value; }
         }
 
+        public Vector3 LocalScale {
+            get { return transform.localScale; }
+            set { transform.localScale = value; }
+        }
+
+        public Vector3 LossyScale {
+            get { return transform.lossyScale; }
+        }
+
         public bool Active {
             get { return gameObject.activeSelf; }
             set { gameObject.SetActive(value); }

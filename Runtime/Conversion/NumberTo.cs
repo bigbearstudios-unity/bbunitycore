@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Text;
 
-namespace BBUnity.Core.Conversion {
+namespace BBUnity.Conversion {
     public static class NumberTo {
         public static string RomanNumeral(int number) {
             return NumberToRomanNumerals.Convert(number);

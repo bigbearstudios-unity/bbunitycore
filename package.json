@@ -2,7 +2,7 @@
     "name": "com.bigbearstudios.bbunity-core",
     "version": "0.0.1",
     "displayName": "BBUnity Core",
-    "description": "",
+    "description": "Core Shared library for the BBUnity project - Requires Unity / C# to use",
     "unity": "2018.3",
     "repository": {
       "type": "git",
@@ -19,6 +19,6 @@
       "email": "stuart@bigbearstudios.co.uk"
     }],
     "dependencies": {
-        "com.bigbearstudios.bbunitytestsupport":"0.0.1"
+        "com.bigbearstudios.bbunity-test-support":"0.0.3"
     }
   }

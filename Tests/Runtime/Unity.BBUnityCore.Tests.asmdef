@@ -2,7 +2,8 @@
     "name": "Unity.BBUnityCore.Tests",
     "references": [
         "GUID:90a66f91da0171342b2768710cbba427",
-        "GUID:27619889b8ba8c24980f49ee34dbb44a"
+        "GUID:27619889b8ba8c24980f49ee34dbb44a",
+        "GUID:e439f6cd0e24d88459748c09cd50b59c"
     ],
     "includePlatforms": [],
     "excludePlatforms": [],
