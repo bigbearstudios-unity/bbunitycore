@@ -8,7 +8,7 @@ namespace Conversion {
     public class NumberToTests {
         [Test]
         public void RomanNumeral_ShouldReturnCorrectRomanNumeral() {
-            new Dictionary<int, string> {
+            UAssert.AreEqual(new Dictionary<int, string> {
                 { 1, "I" },
                 { 5, "V" },
                 { 10, "X"  },
@@ -19,13 +19,13 @@ namespace Conversion {
                 { 2, "II" },
                 { 3, "III" },
                 { 15, "XV" },
-                { 28, "XXIIX" },
-            }.AreEqual(NumberTo.RomanNumeral);
+                { 28, "XXIIX" }
+            }, NumberTo.RomanNumeral);
         }
 
         [Test]
         public void RetroScore_ShouldReturnCorrectRetroScore() {
-            new Dictionary<int, string> {
+            UAssert.AreEqual(new Dictionary<int, string> {
                 { 1, "0000000001" },
                 { 10, "0000000010" },
                 { 100, "0000000100" },
@@ -36,7 +36,7 @@ namespace Conversion {
                 { 10000000, "0010000000" },
                 { 100000000, "0100000000" },
                 { 1000000000, "1000000000" }
-            }.AreEqual((int value) => {
+            }, (int value) => {
                 return NumberTo.RetroScore(value);
             });
         }

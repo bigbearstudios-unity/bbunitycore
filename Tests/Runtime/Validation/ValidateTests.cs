@@ -2,114 +2,113 @@
 
 using BBUnity.Validation;
 using BBUnity.TestSupport;
-using System.Collections.Generic;
 
 namespace Validation {
     public class ValidateTest {
 
         [Test]
         public void IPv4Format_ShouldPassOnValidIps() {
-            new string[] {
+            UAssert.IsTrue(new string[] {
                 "1.1.1.1", 
                 "255.255.255.255"
-            }.IsTrue(Validate.IPv4Format);
+            }, Validate.IPv4Format);
         }
 
         [Test]
         public void IPv4Format_ShouldFailOnInvalidIPs() {
-            new string[] {
+            UAssert.IsFalse(new string[] {
                 "a.1.1.1", 
                 "a.b.c.d", 
                 "1-1-1-1"
-            }.IsFalse(Validate.IPv4Format);
+            }, Validate.IPv4Format);
         }
 
         [Test]
         public void IPv4_ShouldPassOnValidIps() {
-            new string[] {
+            UAssert.IsTrue(new string[] {
                 "1.1.1.1", 
                 "255.255.255.255"
-            }.IsTrue(Validate.IPv4);
+            }, Validate.IPv4);
         }
 
         [Test]
         public void IPv4_ShouldFailOnInvalidIPs() {
-            new string[] {
+            UAssert.IsFalse(new string[] {
                 "a.1.1.1", 
                 "a.b.c.d", 
                 "1-1-1-1", 
                 "125.125.125.300"
-            }.IsFalse(Validate.IPv4);
+            }, Validate.IPv4);
         }
 
         [Test]
         public void IPv6_ShouldPassOnValidIps() {
-            new string[] {
+            UAssert.IsTrue(new string[] {
                 "2001:470:9b36:1::2",
                 "2001:cdba:0000:0000:0000:0000:3257:9652",
                 "2001:cdba:0:0:0:0:3257:9652",
                 "2001:cdba::3257:9652"
-            }.IsTrue(Validate.IPv6);
+            }, Validate.IPv6);
         }
 
         [Test]
         public void IPv6_ShouldFailOnInvalidIps() {
-            new string[] {
+            UAssert.IsFalse(new string[] {
                 "1200::AB00:1234::2552:7777:1313",
                 "1200:0000:AB00:1234:O000:2552:7777:1313"
-            }.IsFalse(Validate.IPv6);
+            }, Validate.IPv6);
         }
 
         [Test]
         public void Email_ShouldPassOnValidEmailAddress() {
-            new string[] {
+            UAssert.IsTrue(new string[] {
                 "test@mail.com"
-            }.IsTrue(Validate.Email);
+            }, Validate.Email);
         }
 
         [Test]
         public void EmailAddress_ShouldPassOnValidEmailAddress() {
-            new string[] {
+            UAssert.IsTrue(new string[] {
                 "test@mail.com"
-            }.IsTrue(Validate.EmailAddress);
+            }, Validate.EmailAddress);
         }
 
         [Test]
         public void Email_ShouldFailOnInvalidEmailAddress() {
-            new string[] {
+            UAssert.IsFalse(new string[] {
                 "testmail.com", 
                 "@testmail.com", 
                 "test@mailcom"
-            }.IsFalse(Validate.Email);
+            }, Validate.Email);
         }
 
         [Test]
         public void EmailAddress_ShouldFailOnInvalidEmailAddress() {
-            new string[] {
+            UAssert.IsFalse(new string[] {
                 "testmail.com", 
                 "@testmail.com", 
                 "test@mailcom"
-            }.IsFalse(Validate.EmailAddress);
+            }, Validate.EmailAddress);
         }
 
         [Test]
         public void URL_ShouldPassOnValidURLs() {
-            new string[] {
+            UAssert.IsTrue(new string[] {
                 "https://testsite.com",
                 "http://testsite.com",
                 "www.testsite.com",
-                "testsite.com" +
+                "testsite.com",
                 "test.de",
                 "https://github.com/atestproject"
-            }.IsTrue(Validate.URL);
+            }, Validate.URL);
         }
 
         [Test]
         public void URL_ShouldFailOnInvalidURLs () {
-            new string[] {
+            UAssert.IsFalse(new string[] {
                 "testmailcom", 
                 "http:testmailcom"
-            }.IsFalse(Validate.URL);
+            }, Validate.URL);
         }
 
         [Test]

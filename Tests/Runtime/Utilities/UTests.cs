@@ -3,7 +3,6 @@ using UnityEngine;
 
 namespace Utilities {
     public class UTests {
-
         [Test]
         public void Tap_ShouldReturnTheObjectPassed() {
             object ob = new object();
@@ -52,6 +51,34 @@ namespace Utilities {
 
             Assert.IsNotNull(obj.GetComponent<SpriteRenderer>());
             Assert.AreEqual(1, obj.GetComponents<SpriteRenderer>().Length);
+        }
+
+        class UTestsFindAllInstances : MonoBehaviour {
+
+        }
+
+        [Test]
+        public void FindAllInstancesInActiveScene_ShouldFindSingleComponentInScene_WhereThereIsASingleActiveComponent() {
+            GameObject obj = new GameObject("UTestsFindAllInstances", new System.Type[] { typeof(UTestsFindAllInstances) });
+            UTestsFindAllInstances[] instances = U.FindAllInstancesInActiveScene<UTestsFindAllInstances>();
+
+            Assert.AreEqual(1, instances.Length);
+
+            Object.DestroyImmediate(obj);
+        }
+
+        [Test]
+        public void FindAllInstancesInActiveScene_ShouldNotFindSingleComponentInScene_WhereThereIsASingleInactiveComponent() {
+            GameObject obj = new GameObject("UTestsFindAllInstances", new System.Type[] { typeof(UTestsFindAllInstances) });
+            obj.SetActive(false);
+
+            Debug.Log(obj.activeSelf);
+
+            UTestsFindAllInstances[] instances = U.FindAllInstancesInActiveScene<UTestsFindAllInstances>();
+
+            Assert.AreEqual(0, instances.Length);
+
+            Object.DestroyImmediate(obj);
         }
     }
 }

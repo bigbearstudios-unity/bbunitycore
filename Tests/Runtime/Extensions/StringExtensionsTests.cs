@@ -13,47 +13,47 @@ namespace Extensions {
 
             [Test]
         public void NumberOfWords_ShouldCountTheNumberOfWordsInAString_IfWordsAreASingleCharcter() {
-            new Dictionary<string, int> {
+            UAssert.AreEqual(new Dictionary<string, int> {
                 { "a", 1 },
                 { "a b", 2 },
                 { "a b c", 3 }
-            }.AreEqual(NumberOfWords);
+            }, NumberOfWords);
         }
 
         [Test]
         public void NumberOfWords_ShouldCountTheNumberOfWordsInAString_IfWordsAreSeperatedByASingleCharacter() {
-            new Dictionary<string, int> {
+            UAssert.AreEqual(new Dictionary<string, int> {
                 { "hello", 1 },
                 { "hello motto", 2 },
                 { "hello motto motto", 3 }
-            }.AreEqual(NumberOfWords);
+            }, NumberOfWords);
         }
 
         [Test]
         public void NumberOfWords_ShouldCountTheNumberOfWordsInAString_IfWordsAreSeperatedByMutlipleCharacters() {
-            new Dictionary<string, int> {
+            UAssert.AreEqual(new Dictionary<string, int> {
                 { "hello", 1 },
                 { "hello  motto", 2 },
                 { "hello  motto motto", 3 }
-            }.AreEqual(NumberOfWords);
+            }, NumberOfWords);
         }
 
         [Test]
         public void NumberOfWords_ShouldCountTheNumberOfWordsInAString_IfWordsStartWithWhitespace() {
-            new Dictionary<string, int> {
+            UAssert.AreEqual(new Dictionary<string, int> {
                 { " hello", 1 },
                 { "  hello  motto", 2 },
                 { "   hello  motto motto", 3 }
-            }.AreEqual(NumberOfWords);
+            }, NumberOfWords);
         }
 
         [Test]
         public void NumberOfWords_ShouldCountTheNumberOfWordsInAString_IfWordsEndWithWhitespace() {
-            new Dictionary<string, int> {
+            UAssert.AreEqual(new Dictionary<string, int> {
                 { "hello ", 1 },
                 { "hello  motto   ", 2 },
                 { "hello  motto motto    ", 3 }
-            }.AreEqual(NumberOfWords);
+            }, NumberOfWords);
         }
 
         [Test]

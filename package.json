@@ -21,6 +21,6 @@
         }
     ],
     "dependencies": {
-        "com.bigbearstudios.bbunity-test-support": "0.0.3"
+        "com.bigbearstudios.bbunity-test-support": "0.1.0"
     }
 }
