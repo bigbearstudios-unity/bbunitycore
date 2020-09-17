@@ -1,6 +1,10 @@
-﻿using UnityEngine;
+﻿using System.Collections.Generic;
 
-public static class U {
+using UnityEngine;
+using UnityEngine.SceneManagement;
+
+namespace BBUnity {
+    public static class Utilities {
 
     /*
      * GameObject Creation
@@ -82,4 +86,25 @@ public static class U {
         action(obj);
         return obj;
     }
+
+    /*
+     * Scene Management
+     */
+
+    public static T[] FindAllInstancesInActiveScene<T>(bool includeInactive = false) {
+        List<T> toReturn = new List<T>();
+        Scene scene = SceneManager.GetActiveScene();
+        GameObject[] gameObjects = scene.GetRootGameObjects();
+
+        foreach(var gameObject in gameObjects) {
+            T[] instances = gameObject.GetComponentsInChildren<T>(includeInactive);
+            foreach(T instance in instances) {
+                toReturn.Add(instance);
+            }
+        }
+
+        return toReturn.ToArray();
+    }
+}
+
 }
