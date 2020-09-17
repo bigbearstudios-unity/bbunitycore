@@ -1,4 +1,4 @@
-﻿﻿using NUnit.Framework;
+﻿using NUnit.Framework;
 using System.Collections.Generic;
 
 using BBUnity.Conversion;
@@ -8,7 +8,7 @@ namespace Conversion {
     public class NumberToTests {
         [Test]
         public void RomanNumeral_ShouldReturnCorrectRomanNumeral() {
-            UAssert.AreEqual(new Dictionary<int, string> {
+            BBAssert.AreEqual(new Dictionary<int, string> {
                 { 1, "I" },
                 { 5, "V" },
                 { 10, "X"  },
@@ -25,7 +25,7 @@ namespace Conversion {
 
         [Test]
         public void RetroScore_ShouldReturnCorrectRetroScore() {
-            UAssert.AreEqual(new Dictionary<int, string> {
+            BBAssert.AreEqual(new Dictionary<int, string> {
                 { 1, "0000000001" },
                 { 10, "0000000010" },
                 { 100, "0000000100" },
