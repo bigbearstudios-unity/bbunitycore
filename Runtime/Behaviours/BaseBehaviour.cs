@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 
 namespace BBUnity {
-    public class BBBehaviour : MonoBehaviour {
+    public class BaseBehaviour : MonoBehaviour {
 
         public Vector3 Position {
             get { return transform.position; }
