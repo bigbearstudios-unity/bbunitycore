@@ -1,29 +1,46 @@
 ﻿using System;
+
 using UnityEngine;
 
 namespace BBUnity {
-    public class CallbackHandler<T> {
+
+
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <typeparam name="T"></typeparam>
+    public class BehaviourDelegate<T> {
 
         /// <summary>
         /// Multiple callbacks to process
         /// </summary>
-        private T[] _callbacks;
+        private T[] _delegates;
 
         /// <summary>
         /// Is the callback handler enabled
         /// </summary>
         private bool _enabled = true;
 
-        public int NumberOfCallbacks {
-            get { return _callbacks.Length; }
+        /// <summary>
+        /// The number of callbacks currently registered
+        /// </summary>
+        public int NumberOfDelegates {
+            get { return _delegates.Length; }
+        }
+
+        /// <summary>
+        /// Creates an empty deletes array
+        /// </summary>
+        public BehaviourDelegate() {
+            _delegates = new T[0];
         }
 
         /// <summary>
         /// Finds all references to T in the current behaviour, stores them as callbacks
         /// </summary>
         /// <param name="behaviour"></param>
-        public CallbackHandler(MonoBehaviour behaviour) {
-            _callbacks = behaviour.GetComponents<T>();
+        public BehaviourDelegate(MonoBehaviour behaviour) {
+            _delegates = behaviour.GetComponents<T>();
         }
 
         /// <summary>
@@ -40,8 +57,8 @@ namespace BBUnity {
             _enabled = true;
         }
 
-        public void AddCallback(T callback) {
-            ArrayUtilities.Append(ref _callbacks, callback);
+        public void AddDelegate(T del) {
+            ArrayUtilities.Append(ref _delegates, del);
         }
 
         /// <summary>
@@ -50,12 +67,13 @@ namespace BBUnity {
         /// <param name="action"></param>
         public void Process(Action<T> action) {
             if(_enabled) {
-                foreach(T callback in _callbacks) {
-                    if(callback != null) {
-                        action(callback);
+                foreach(T del in _delegates) {
+                    if(del != null) {
+                        action(del);
                     }
                 }
             }
         }
     }
 }
+
