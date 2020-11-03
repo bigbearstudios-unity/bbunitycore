@@ -19,13 +19,6 @@ namespace BBUnity {
         }
 
         /// <summary>
-        /// Finds all Global references to T, stores them as callbacks
-        /// </summary>
-        public CallbackHandler() {
-            _callbacks = Utilities.FindAllInstancesInActiveScene<T>();
-        }
-
-        /// <summary>
         /// Finds all references to T in the current behaviour, stores them as callbacks
         /// </summary>
         /// <param name="behaviour"></param>
@@ -55,10 +48,12 @@ namespace BBUnity {
         /// Allows the calling of a method on all of the callbacks registered
         /// </summary>
         /// <param name="action"></param>
-        public void Call(Action<T> action) {
+        public void Process(Action<T> action) {
             if(_enabled) {
                 foreach(T callback in _callbacks) {
-                    action(callback);
+                    if(callback != null) {
+                        action(callback);
+                    }
                 }
             }
         }

@@ -49,7 +49,7 @@ namespace Callbacks {
                 CallbackHandler<CallbackHandlerTestInterface> callbackHandler = new CallbackHandler<CallbackHandlerTestInterface>(behaviour);
 
                 int callCount = 0;
-                callbackHandler.Call((CallbackHandlerTestInterface i) => {
+                callbackHandler.Process((CallbackHandlerTestInterface i) => {
                     callCount++;
                 });
 
@@ -66,7 +66,7 @@ namespace Callbacks {
                 callbackHandler.Disable();
 
                 int callCount = 0;
-                callbackHandler.Call((CallbackHandlerTestInterface i) => {
+                callbackHandler.Process((CallbackHandlerTestInterface i) => {
                     callCount++;
                 });
 
@@ -83,7 +83,7 @@ namespace Callbacks {
                 callbackHandler.Disable();
 
                 BBAssert.IsCalled(0, (Action called) => {
-                    callbackHandler.Call((CallbackHandlerTestInterface i) => {
+                    callbackHandler.Process((CallbackHandlerTestInterface i) => {
                         called();
                     });
                 });
@@ -91,7 +91,7 @@ namespace Callbacks {
                 callbackHandler.Enable();
 
                 BBAssert.IsCalled(2, (Action called) => {
-                    callbackHandler.Call((CallbackHandlerTestInterface i) => {
+                    callbackHandler.Process((CallbackHandlerTestInterface i) => {
                         called();
                     });
                 });
