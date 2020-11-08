@@ -3,7 +3,6 @@
 using BBUnity;
 using BBUnity.TestSupport;
 using UnityEngine;
-using NUnit.Framework.Constraints;
 
 namespace Behaviours {
     public class BaseBehaviourTest {
