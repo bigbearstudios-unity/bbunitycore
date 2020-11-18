@@ -13,7 +13,7 @@ namespace Extensions {
 
             [Test]
         public void NumberOfWords_ShouldCountTheNumberOfWordsInAString_IfWordsAreASingleCharcter() {
-            BBAssert.AreEqual(new Dictionary<string, int> {
+            UnityAssert.AreEqual(new Dictionary<string, int> {
                 { "a", 1 },
                 { "a b", 2 },
                 { "a b c", 3 }
@@ -22,7 +22,7 @@ namespace Extensions {
 
         [Test]
         public void NumberOfWords_ShouldCountTheNumberOfWordsInAString_IfWordsAreSeperatedByASingleCharacter() {
-            BBAssert.AreEqual(new Dictionary<string, int> {
+            UnityAssert.AreEqual(new Dictionary<string, int> {
                 { "hello", 1 },
                 { "hello motto", 2 },
                 { "hello motto motto", 3 }
@@ -31,7 +31,7 @@ namespace Extensions {
 
         [Test]
         public void NumberOfWords_ShouldCountTheNumberOfWordsInAString_IfWordsAreSeperatedByMutlipleCharacters() {
-            BBAssert.AreEqual(new Dictionary<string, int> {
+            UnityAssert.AreEqual(new Dictionary<string, int> {
                 { "hello", 1 },
                 { "hello  motto", 2 },
                 { "hello  motto motto", 3 }
@@ -40,7 +40,7 @@ namespace Extensions {
 
         [Test]
         public void NumberOfWords_ShouldCountTheNumberOfWordsInAString_IfWordsStartWithWhitespace() {
-            BBAssert.AreEqual(new Dictionary<string, int> {
+            UnityAssert.AreEqual(new Dictionary<string, int> {
                 { " hello", 1 },
                 { "  hello  motto", 2 },
                 { "   hello  motto motto", 3 }
@@ -49,7 +49,7 @@ namespace Extensions {
 
         [Test]
         public void NumberOfWords_ShouldCountTheNumberOfWordsInAString_IfWordsEndWithWhitespace() {
-            BBAssert.AreEqual(new Dictionary<string, int> {
+            UnityAssert.AreEqual(new Dictionary<string, int> {
                 { "hello ", 1 },
                 { "hello  motto   ", 2 },
                 { "hello  motto motto    ", 3 }

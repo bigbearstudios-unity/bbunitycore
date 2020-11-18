@@ -82,7 +82,7 @@ namespace Behaviours {
 
                 callbackHandler.Disable();
 
-                BBAssert.IsCalled(0, (Action called) => {
+                UnityAssert.IsCalled(0, (Action called) => {
                     callbackHandler.Process((CallbackHandlerTestInterface i) => {
                         called();
                     });
@@ -90,7 +90,7 @@ namespace Behaviours {
 
                 callbackHandler.Enable();
 
-                BBAssert.IsCalled(2, (Action called) => {
+                UnityAssert.IsCalled(2, (Action called) => {
                     callbackHandler.Process((CallbackHandlerTestInterface i) => {
                         called();
                     });

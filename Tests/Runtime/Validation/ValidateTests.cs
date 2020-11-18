@@ -8,7 +8,7 @@ namespace Validation {
 
         [Test]
         public void IPv4Format_ShouldPassOnValidIps() {
-            BBAssert.IsTrue(new string[] {
+            UnityAssert.IsTrue(new string[] {
                 "1.1.1.1", 
                 "255.255.255.255"
             }, Validate.IPv4Format);
@@ -16,7 +16,7 @@ namespace Validation {
 
         [Test]
         public void IPv4Format_ShouldFailOnInvalidIPs() {
-            BBAssert.IsFalse(new string[] {
+            UnityAssert.IsFalse(new string[] {
                 "a.1.1.1", 
                 "a.b.c.d", 
                 "1-1-1-1"
@@ -25,7 +25,7 @@ namespace Validation {
 
         [Test]
         public void IPv4_ShouldPassOnValidIps() {
-            BBAssert.IsTrue(new string[] {
+            UnityAssert.IsTrue(new string[] {
                 "1.1.1.1", 
                 "255.255.255.255"
             }, Validate.IPv4);
@@ -33,7 +33,7 @@ namespace Validation {
 
         [Test]
         public void IPv4_ShouldFailOnInvalidIPs() {
-            BBAssert.IsFalse(new string[] {
+            UnityAssert.IsFalse(new string[] {
                 "a.1.1.1", 
                 "a.b.c.d", 
                 "1-1-1-1", 
@@ -43,7 +43,7 @@ namespace Validation {
 
         [Test]
         public void IPv6_ShouldPassOnValidIps() {
-            BBAssert.IsTrue(new string[] {
+            UnityAssert.IsTrue(new string[] {
                 "2001:470:9b36:1::2",
                 "2001:cdba:0000:0000:0000:0000:3257:9652",
                 "2001:cdba:0:0:0:0:3257:9652",
@@ -53,7 +53,7 @@ namespace Validation {
 
         [Test]
         public void IPv6_ShouldFailOnInvalidIps() {
-            BBAssert.IsFalse(new string[] {
+            UnityAssert.IsFalse(new string[] {
                 "1200::AB00:1234::2552:7777:1313",
                 "1200:0000:AB00:1234:O000:2552:7777:1313"
             }, Validate.IPv6);
@@ -61,21 +61,21 @@ namespace Validation {
 
         [Test]
         public void Email_ShouldPassOnValidEmailAddress() {
-            BBAssert.IsTrue(new string[] {
+            UnityAssert.IsTrue(new string[] {
                 "test@mail.com"
             }, Validate.Email);
         }
 
         [Test]
         public void EmailAddress_ShouldPassOnValidEmailAddress() {
-            BBAssert.IsTrue(new string[] {
+            UnityAssert.IsTrue(new string[] {
                 "test@mail.com"
             }, Validate.EmailAddress);
         }
 
         [Test]
         public void Email_ShouldFailOnInvalidEmailAddress() {
-            BBAssert.IsFalse(new string[] {
+            UnityAssert.IsFalse(new string[] {
                 "testmail.com", 
                 "@testmail.com", 
                 "test@mailcom"
@@ -84,7 +84,7 @@ namespace Validation {
 
         [Test]
         public void EmailAddress_ShouldFailOnInvalidEmailAddress() {
-            BBAssert.IsFalse(new string[] {
+            UnityAssert.IsFalse(new string[] {
                 "testmail.com", 
                 "@testmail.com", 
                 "test@mailcom"
@@ -93,7 +93,7 @@ namespace Validation {
 
         [Test]
         public void URL_ShouldPassOnValidURLs() {
-            BBAssert.IsTrue(new string[] {
+            UnityAssert.IsTrue(new string[] {
                 "https://testsite.com",
                 "http://testsite.com",
                 "www.testsite.com",
@@ -105,7 +105,7 @@ namespace Validation {
 
         [Test]
         public void URL_ShouldFailOnInvalidURLs () {
-            BBAssert.IsFalse(new string[] {
+            UnityAssert.IsFalse(new string[] {
                 "testmailcom", 
                 "http:testmailcom"
             }, Validate.URL);

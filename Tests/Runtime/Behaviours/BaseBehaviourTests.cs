@@ -14,7 +14,7 @@ namespace Behaviours {
         [Test]
         public void Position_ShouldReturnTransformsPosition() {
             BaseBehaviour behaviour = TestUtilities.CreateGameObject<BaseBehaviour>();
-            BBAssert.AreEqual(behaviour.Position, behaviour.transform.position);
+            UnityAssert.AreEqual(behaviour.Position, behaviour.transform.position);
         }
 
         [Test]
@@ -38,19 +38,19 @@ namespace Behaviours {
         [Test]
         public void Rotation_ShouldReturnTransformsRotation() {
             BaseBehaviour behaviour = TestUtilities.CreateGameObject<BaseBehaviour>();
-            BBAssert.AreEqual(behaviour.Rotation, behaviour.transform.rotation);
+            UnityAssert.AreEqual(behaviour.Rotation, behaviour.transform.rotation);
         }
 
         [Test]
         public void LocalScale_ShouldReturnTransformsLocalScale() {
             BaseBehaviour behaviour = TestUtilities.CreateGameObject<BaseBehaviour>();
-            BBAssert.AreEqual(behaviour.LocalScale, behaviour.transform.localScale);
+            UnityAssert.AreEqual(behaviour.LocalScale, behaviour.transform.localScale);
         }
 
         [Test]
         public void LossyScale_ShouldReturnTransformsLossyScale() {
             BaseBehaviour behaviour = TestUtilities.CreateGameObject<BaseBehaviour>();
-            BBAssert.AreEqual(behaviour.LossyScale, behaviour.transform.lossyScale);
+            UnityAssert.AreEqual(behaviour.LossyScale, behaviour.transform.lossyScale);
         }
 
         [Test]
@@ -75,7 +75,7 @@ namespace Behaviours {
             behaviour.Position = Vector3.up;
             behaviour.SetPosition(Vector3.up);
 
-            BBAssert.AreEqual(behaviour.transform.position, Vector3.up);
+            UnityAssert.AreEqual(behaviour.transform.position, Vector3.up);
         }
 
         [Test]
