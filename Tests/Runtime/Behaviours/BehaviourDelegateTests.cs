@@ -8,11 +8,11 @@ using BBUnity.TestSupport;
 namespace Behaviours {
     public class BehaviourDelegateTests {
 
-        public interface CallbackHandlerTestInterface {
+        public interface ICallbackHandlerTestInterface {
             void ToCall();
         }
 
-        public class CallbackHandlerTestComponent : MonoBehaviour, CallbackHandlerTestInterface {
+        public class CallbackHandlerTestComponent : MonoBehaviour, ICallbackHandlerTestInterface {
             public void ToCall() {
                 
             }
@@ -26,7 +26,7 @@ namespace Behaviours {
         public void CallbackHandler_ShouldFindInterfaces() {
             TestUtilities.CreateThenDestroyGameObject(new Type[] { typeof(CallbackHandlerTestComponentBase), typeof(CallbackHandlerTestComponent) }, (GameObject obj) => {
                 MonoBehaviour behaviour = obj.GetComponent<CallbackHandlerTestComponentBase>();
-                BehaviourDelegate<CallbackHandlerTestInterface> callbackHandler = new BehaviourDelegate<CallbackHandlerTestInterface>(behaviour);
+                BehaviourDelegate<ICallbackHandlerTestInterface> callbackHandler = new BehaviourDelegate<ICallbackHandlerTestInterface>(behaviour);
 
                 Assert.AreEqual(1, callbackHandler.NumberOfDelegates);
             });
@@ -36,7 +36,7 @@ namespace Behaviours {
         public void CallbackHandler_ShouldFindMultipleInterfaces() {
             TestUtilities.CreateThenDestroyGameObject(new Type[] { typeof(CallbackHandlerTestComponentBase), typeof(CallbackHandlerTestComponent), typeof(CallbackHandlerTestComponent) }, (GameObject obj) => {
                 MonoBehaviour behaviour = obj.GetComponent<CallbackHandlerTestComponentBase>();
-                BehaviourDelegate<CallbackHandlerTestInterface> callbackHandler = new BehaviourDelegate<CallbackHandlerTestInterface>(behaviour);
+                BehaviourDelegate<ICallbackHandlerTestInterface> callbackHandler = new BehaviourDelegate<ICallbackHandlerTestInterface>(behaviour);
 
                 Assert.AreEqual(2, callbackHandler.NumberOfDelegates);
             });
@@ -46,10 +46,10 @@ namespace Behaviours {
         public void CallbackHandler_ShouldProcessMultipleComponents() {
             TestUtilities.CreateThenDestroyGameObject(new Type[] { typeof(CallbackHandlerTestComponentBase), typeof(CallbackHandlerTestComponent), typeof(CallbackHandlerTestComponent) }, (GameObject obj) => {
                 MonoBehaviour behaviour = obj.GetComponent<CallbackHandlerTestComponentBase>();
-                BehaviourDelegate<CallbackHandlerTestInterface> callbackHandler = new BehaviourDelegate<CallbackHandlerTestInterface>(behaviour);
+                BehaviourDelegate<ICallbackHandlerTestInterface> callbackHandler = new BehaviourDelegate<ICallbackHandlerTestInterface>(behaviour);
 
                 int callCount = 0;
-                callbackHandler.Process((CallbackHandlerTestInterface i) => {
+                callbackHandler.Process((ICallbackHandlerTestInterface i) => {
                     callCount++;
                 });
 
@@ -61,12 +61,12 @@ namespace Behaviours {
         public void CallbackHandler_ShouldAllowDisable() {
             TestUtilities.CreateThenDestroyGameObject(new Type[] { typeof(CallbackHandlerTestComponentBase), typeof(CallbackHandlerTestComponent), typeof(CallbackHandlerTestComponent) }, (GameObject obj) => {
                 MonoBehaviour behaviour = obj.GetComponent<CallbackHandlerTestComponentBase>();
-                BehaviourDelegate<CallbackHandlerTestInterface> callbackHandler = new BehaviourDelegate<CallbackHandlerTestInterface>(behaviour);
+                BehaviourDelegate<ICallbackHandlerTestInterface> callbackHandler = new BehaviourDelegate<ICallbackHandlerTestInterface>(behaviour);
 
                 callbackHandler.Disable();
 
                 int callCount = 0;
-                callbackHandler.Process((CallbackHandlerTestInterface i) => {
+                callbackHandler.Process((ICallbackHandlerTestInterface i) => {
                     callCount++;
                 });
 
@@ -78,12 +78,12 @@ namespace Behaviours {
         public void CallbackHandler_ShouldAllowEnable() {
             TestUtilities.CreateThenDestroyGameObject(new Type[] { typeof(CallbackHandlerTestComponentBase), typeof(CallbackHandlerTestComponent), typeof(CallbackHandlerTestComponent) }, (GameObject obj) => {
                 MonoBehaviour behaviour = obj.GetComponent<CallbackHandlerTestComponentBase>();
-                BehaviourDelegate<CallbackHandlerTestInterface> callbackHandler = new BehaviourDelegate<CallbackHandlerTestInterface>(behaviour);
+                BehaviourDelegate<ICallbackHandlerTestInterface> callbackHandler = new BehaviourDelegate<ICallbackHandlerTestInterface>(behaviour);
 
                 callbackHandler.Disable();
 
                 UnityAssert.IsCalled(0, (Action called) => {
-                    callbackHandler.Process((CallbackHandlerTestInterface i) => {
+                    callbackHandler.Process((ICallbackHandlerTestInterface i) => {
                         called();
                     });
                 });
@@ -91,7 +91,7 @@ namespace Behaviours {
                 callbackHandler.Enable();
 
                 UnityAssert.IsCalled(2, (Action called) => {
-                    callbackHandler.Process((CallbackHandlerTestInterface i) => {
+                    callbackHandler.Process((ICallbackHandlerTestInterface i) => {
                         called();
                     });
                 });

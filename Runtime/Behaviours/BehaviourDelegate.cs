@@ -1,9 +1,7 @@
 ﻿using System;
-
 using UnityEngine;
 
 namespace BBUnity {
-
 
     /// <summary>
     /// 
@@ -14,7 +12,7 @@ namespace BBUnity {
         /// <summary>
         /// Multiple callbacks to process
         /// </summary>
-        private T[] _delegates;
+        protected T[] _delegates;
 
         /// <summary>
         /// Is the callback handler enabled
