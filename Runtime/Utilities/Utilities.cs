@@ -16,7 +16,7 @@ namespace BBUnity {
 
         public static GameObject CreateGameObject(string name, Transform parent) {
             GameObject obj = new GameObject(name);
-            obj.transform.parent = parent;
+            obj.transform.SetParent(parent, true);
             return obj;
         }
 
@@ -27,7 +27,7 @@ namespace BBUnity {
 
         public static GameObject CreateGameObject(string name, Transform parent, System.Type[] components) {
             GameObject obj = new GameObject(name, components);
-            obj.transform.parent = parent;
+            obj.transform.SetParent(parent, true);
             return obj;
         }
 

@@ -1,7 +1,13 @@
-﻿using UnityEngine;
+﻿using System.Collections;
+using UnityEngine;
 
 namespace BBUnity {
     public class BaseBehaviour : MonoBehaviour {
+
+        public string Name {
+            get { return name; }
+            set { Name = value; }
+        }
 
         public Vector3 Position {
             get { return transform.position; }
@@ -71,6 +77,10 @@ namespace BBUnity {
             enabled = enable;
         }
 
+        public void SetName(string name) {
+            this.name = name;
+        }
+
         public void SetParent(Transform parent) {
             transform.parent = parent;
         }
@@ -108,6 +118,22 @@ namespace BBUnity {
             if(resetScale) {
                 transform.localScale = Vector3.one;
             }
+        }
+
+        public void WaitThen(float wait, System.Action action) {
+            StartCoroutine(Wait(wait, action));
+        }
+
+        public void WaitThen(float wait, IEnumerator routine) {
+            StartCoroutine(Wait(wait, () => {
+                StartCoroutine(routine);
+            }));
+        }
+
+        private IEnumerator Wait(float wait, System.Action action) {
+            yield return new WaitForSeconds(wait);
+
+            action();
         }
     }
 }
