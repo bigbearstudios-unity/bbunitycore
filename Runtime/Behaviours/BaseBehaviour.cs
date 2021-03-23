@@ -48,9 +48,17 @@ namespace BBUnity {
             set { gameObject.SetActive(value); }
         }
 
+        public bool Inactive {
+            get { return !gameObject.activeSelf; }
+        }
+
         public bool Enabled {
             get { return enabled; }
             set { enabled = value; }
+        }
+
+        public bool Disabled {
+            get { return !enabled; }
         }
 
         public void Activate() {
