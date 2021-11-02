@@ -2,6 +2,11 @@
 using UnityEngine;
 
 namespace BBUnity {
+
+    /// <summary>
+    /// The base behaviour for all components in BBUnity. This provides easy access methods for basic Unity
+    /// properties
+    /// </summary>
     public class BaseBehaviour : MonoBehaviour {
 
         public string Name {

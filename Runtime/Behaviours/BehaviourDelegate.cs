@@ -4,9 +4,11 @@ using UnityEngine;
 namespace BBUnity {
 
     /// <summary>
-    /// 
+    /// Allows the handling of delegates to multiple instances of the same
+    /// Type. This can be used if you wish to pick up Interfaces from a handler
+    /// object
     /// </summary>
-    /// <typeparam name="T"></typeparam>
+    /// <typeparam name="T">The type of Interface being delegated too</typeparam>
     public class BehaviourDelegate<T> {
 
         /// <summary>
