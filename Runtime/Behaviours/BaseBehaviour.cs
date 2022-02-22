@@ -133,6 +133,9 @@ namespace BBUnity {
             }
         }
 
+        /// <summary>
+        /// Waits a given time in seconds and then calls the action provided
+        /// </summary>
         public void WaitThen(float wait, System.Action action) {
             StartCoroutine(Wait(wait, action));
         }
