@@ -8,10 +8,11 @@ namespace BBUnity.Extensions {
     public static class StringExtensions {
 
         /// <summary>
-        /// Counts the number of words in a given string
+        /// Returns the count of the number of complete works in
+        /// the string provided.
         /// </summary>
         /// <param name="str"></param>
-        /// <returns></returns>
+        /// <returns>The number of words</returns>
         public static int NumberOfWords(this string str) {
             int wordCount = 0, index = 0;
 
@@ -38,7 +39,7 @@ namespace BBUnity.Extensions {
         /// Returns true if a whitespace character is detected within the string
         /// </summary>
         /// <param name="str"></param>
-        /// <returns></returns>
+        /// <returns>True / False if the string contains whitespace</returns>
         public static bool ContainsWhitespace(this string str) {
            return Regex.IsMatch(str, @"\s");
         }
@@ -47,10 +48,10 @@ namespace BBUnity.Extensions {
         /// Uppercases the first letter of a string
         /// </summary>
         /// <param name="str"></param>
-        /// <returns></returns>
+        /// <returns>The string with the first letter upper cased</returns>
         public static string UpperCaseFirstLetter(this string str) {
             if (str.Length == 0) {
-                return string.Empty; //Returning empty to maintain the fact we always return a new string
+                return string.Empty;
             }
 
             char[] a = str.ToCharArray();

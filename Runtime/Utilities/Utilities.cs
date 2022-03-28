@@ -28,23 +28,32 @@ namespace BBUnity {
          */
 
         public static GameObject CreateGameObject(string name) {
-            return new GameObject(name);
+            GameObject obj = new GameObject(name);
+            obj.transform.position = Vector3.zero;
+            obj.transform.localScale = Vector3.one;
+            return obj;
         }
 
         public static GameObject CreateGameObject(string name, Transform parent) {
             GameObject obj = new GameObject(name);
             obj.transform.SetParent(parent, true);
+            obj.transform.position = Vector3.zero;
+            obj.transform.localScale = Vector3.one;
             return obj;
         }
 
         public static GameObject CreateGameObject(string name, System.Type[] components) {
             GameObject obj = new GameObject(name, components);
+            obj.transform.position = Vector3.zero;
+            obj.transform.localScale = Vector3.one;
             return obj;
         }
 
         public static GameObject CreateGameObject(string name, Transform parent, System.Type[] components) {
             GameObject obj = new GameObject(name, components);
             obj.transform.SetParent(parent, true);
+            obj.transform.position = Vector3.zero;
+            obj.transform.localScale = Vector3.one;
             return obj;
         }
 
@@ -79,6 +88,16 @@ namespace BBUnity {
 
         public static T InstantiateWithComponent<T>(GameObject original, Transform parent) where T : Component {
             GameObject obj = GameObject.Instantiate<GameObject>(original, parent);
+            return AddOrGetComponent<T>(obj);
+        }
+
+        public static T InstantiateWithComponent<T>(GameObject original, Transform parent, bool removeCloneFromName) where T : Component {
+            GameObject obj = GameObject.Instantiate<GameObject>(original, parent);
+
+            if(removeCloneFromName) {
+                obj.name = original.name;
+            }
+
             return AddOrGetComponent<T>(obj);
         }
 
