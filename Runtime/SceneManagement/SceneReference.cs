@@ -8,6 +8,11 @@ using UnityEngine;
 
 namespace BBUnity.SceneManagement {
     
+    /// <summary>
+    /// Wrapper class around a SceneReference. This essentially allows the setting of a 
+    /// Scene onto an object which will then be serialized into the path of said
+    /// Scene.
+    /// </summary>
     [System.Serializable]
     public class SceneReference : ISerializationCallbackReceiver {
 

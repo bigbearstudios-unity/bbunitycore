@@ -7,6 +7,7 @@ namespace BBUnity {
     /// The base behaviour for all components in BBUnity. This provides easy access methods for basic Unity
     /// properties
     /// </summary>
+    [AddComponentMenu("")]
     public class BaseBehaviour : MonoBehaviour {
 
         public string Name {

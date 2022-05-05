@@ -5,7 +5,7 @@ using NUnit.Framework;
 using BBUnity;
 using BBUnity.TestSupport;
 
-namespace Behaviours {
+namespace Callbacks {
     public class GlobalBehaviourDelegateTests {
 
         public interface IGlobalCallbackInterface {

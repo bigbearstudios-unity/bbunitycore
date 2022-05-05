@@ -3,39 +3,42 @@ using UnityEngine;
 namespace BBUnity {
 
     /// <summary>
-    /// The base entity behaviour. Entities give more control than a BaseBehaviour and enable 
-    /// Controllers to use used as part of the component flow. Please note that the Awake / Start
-    /// methods must be called if overridden
+    /// The base entity behaviour. Adds Subcomponent control to the BaseBehaviour, this
+    /// could also be added via defining your own SubcomponentController on your own
+    /// MonoBehaviour.
     /// </summary>
+    [AddComponentMenu("")]
     public class SubcomponentBehaviour : BaseBehaviour {
 
+        /// <summary>
+        /// The SubcomponentController which is responsible for the control of 
+        /// all of the underlying Subcomponents
+        /// </summary>
+        /// <returns></returns>  
+        private SubcomponentController _subcomponentController;
 
         /// <summary>
-        /// Uses Reflection to find the SubComponent fields which are assigned to this behaviour.
-        /// The subcomponents are returned.
+        /// Returns all of the Subcomponents 
         /// </summary>
-        private Subcomponent[] _subcomponents;
+        /// <value></value>
         public Subcomponent[] Subcomponents {
-            get { return _subcomponents ??= Utilities.FindReflectedFields<Subcomponent>(this); }
+            get {
+                return _subcomponentController.Subcomponents;
+            }
         }
 
         /// <summary>
-        /// Virtual Awake, must be overriden in subclasses
+        /// Virtual Awake, must be called when subclassing
         /// </summary>
         protected virtual void Awake() {
-            foreach(Subcomponent controller in Subcomponents) {
-                controller.SetEntity(this);
-                controller.Awake();
-            }
+            _subcomponentController.AwakeAll(this);
         }
 
         /// <summary>
-        /// Virtual Start, must be overriden in subclasses
+        /// Virtual Start, must be called when subclassing
         /// </summary>
         protected virtual void Start() {
-            foreach(Subcomponent controller in Subcomponents) {
-                controller.Start();
-            }
+            _subcomponentController.StartAll();
         }
     }
 }
