@@ -36,7 +36,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [0.3.0] - 2020-11-03
 ### Removed 
 
-- Removed the ability for CallbackHandler to find Global Interfaces 
+- Removed the ability for CallbackHandler to find Global Interfaces
 
 ### Added 
 
@@ -57,3 +57,24 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Added
 
 - Added GlobalBehaviourDelegate
+
+## [1.2.1] - 2020-11-25
+
+### Edited
+
+- Fixed a bug in the Editor.asmdef so that it was actually included via the Unity Editor
+
+## [1.3.0] - 2020-05-07
+
+### Added
+
+- Added Name property to BaseBehaviour
+- Added Disabled property to BaseBehaviour
+- Added Inactive property to BaseBehaviour
+- Added WaitThen method to BaseBehaviour, allows a method to be called upon waiting a given amount of time
+- Added Subcomponents, SubcomponentController and SubcomponentBehaviour
+- Added SceneReference within the BBUnity.SceneManagement namespace
+
+### Edited
+
+- Upgraded BBUnity Test Support to 1.1.1
