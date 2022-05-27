@@ -1,3 +1,13 @@
-﻿{
-	"name": "Unity.BBUnityCore"
+{
+    "name": "Unity.BBUnityCore",
+    "references": [],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
 }

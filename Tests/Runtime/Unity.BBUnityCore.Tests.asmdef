@@ -1,9 +1,9 @@
 {
     "name": "Unity.BBUnityCore.Tests",
     "references": [
-        "GUID:90a66f91da0171342b2768710cbba427",
         "GUID:27619889b8ba8c24980f49ee34dbb44a",
-        "GUID:e439f6cd0e24d88459748c09cd50b59c"
+        "GUID:6778b1ba08356431d932d847a647c3eb",
+        "GUID:a9158e99147024c4cb3a605cbb7901d3"
     ],
     "includePlatforms": [],
     "excludePlatforms": [],
