@@ -1,18 +1,31 @@
 using UnityEngine;
 
-namespace BBUnity {
+namespace BBUnity.Controllers {
 
     /// <summary>
-    /// The base Entity Controller. An entity controller allows custom classes to be composed
-    /// onto a Unity.Component without the overhead of a full component
+    /// The base service
     /// </summary>
-    public class Subcomponent {
+    [System.Serializable]
+    public class MonoController {
 
         /// <summary>
-        /// The entity which owns this controller
+        /// The MonoBehaviour which owns the controller.
         /// </summary>
         private MonoBehaviour _behaviour;
         protected MonoBehaviour Behaviour { get { return _behaviour; } }
+
+        [SerializeField, Tooltip("The priority of the behaviour when it comes to being called alongside other behaviours. The lowest priority will get processed first (Can be below 0)")]
+        private int _behaviourPriority;
+        public int BehaviourPriority { get { return _behaviourPriority; } }
+
+        /// <summary>
+        /// Constructor. Please note that a default constructor with no default parameters is
+        /// important for all MonoControllers as the easiest way to manage their values would be
+        /// via the Unity Editor
+        /// </summary>
+        public MonoController() {
+
+        }
 
         /*
          * Component Pass throughs which allows you to get a component
@@ -47,7 +60,7 @@ namespace BBUnity {
         /// Sets the entity. This should be called from the Behaviour which is 
         /// wishing to act as the controller
         /// </summary>
-        internal virtual void SetBehaviour(MonoBehaviour behaviour) {
+        internal void SetBehaviour(MonoBehaviour behaviour) {
             _behaviour = behaviour;
         }
 
@@ -55,5 +68,6 @@ namespace BBUnity {
         public virtual void Start() { }
         public virtual void Update() { }
         public virtual void FixedUpdate() { }
+        public virtual void OnDrawGizmos() { }
     }
 }

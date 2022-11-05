@@ -78,3 +78,14 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Edited
 
 - Upgraded BBUnity Test Support to 1.1.1
+
+
+## [1.5.0] - 2020-11-05
+
+### Removed
+
+- Removed Services / Service
+- Removed LoadableRefernce
+- Removed ArrayUtilities
+- Removed Entire Callback namespace
+- Removed UnityExtensions
