@@ -24,6 +24,6 @@
     "com.bigbearstudios.bbunity-test-support": "1.2.0"
   },
   "scripts": {
-    "publish": "yarn publish"
+    "publish": ""
   }
 }
