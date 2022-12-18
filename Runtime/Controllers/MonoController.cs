@@ -1,6 +1,14 @@
+using System;
+
 using UnityEngine;
 
 namespace BBUnity.Controllers {
+
+    public class InvalidMonoControllerBehaviour : Exception {
+        public InvalidMonoControllerBehaviour() : base() { }
+        public InvalidMonoControllerBehaviour(string message) : base(message) { }
+        public InvalidMonoControllerBehaviour(string message, Exception inner) : base(message, inner) { }
+    }
 
     /// <summary>
     /// The base service
@@ -14,18 +22,12 @@ namespace BBUnity.Controllers {
         private MonoBehaviour _behaviour;
         protected MonoBehaviour Behaviour { get { return _behaviour; } }
 
-        [SerializeField, Tooltip("The priority of the behaviour when it comes to being called alongside other behaviours. The lowest priority will get processed first (Can be below 0)")]
-        private int _behaviourPriority;
-        public int BehaviourPriority { get { return _behaviourPriority; } }
-
         /// <summary>
         /// Constructor. Please note that a default constructor with no default parameters is
         /// important for all MonoControllers as the easiest way to manage their values would be
         /// via the Unity Editor
         /// </summary>
-        public MonoController() {
-
-        }
+        public MonoController() { }
 
         /*
          * Component Pass throughs which allows you to get a component
@@ -56,6 +58,12 @@ namespace BBUnity.Controllers {
             return _behaviour.GetComponentsInParent<T>();
         }
 
+        public virtual void Awake() { }
+        public virtual void Start() { }
+        public virtual void Update() { }
+        public virtual void FixedUpdate() { }
+        public virtual void OnDrawGizmos() { }
+
         /// <summary>
         /// Sets the entity. This should be called from the Behaviour which is 
         /// wishing to act as the controller
@@ -64,10 +72,20 @@ namespace BBUnity.Controllers {
             _behaviour = behaviour;
         }
 
-        public virtual void Awake() { }
-        public virtual void Start() { }
-        public virtual void Update() { }
-        public virtual void FixedUpdate() { }
-        public virtual void OnDrawGizmos() { }
+        /// <summary>
+        /// Finds the the MonoController instances which are defined as private instance
+        /// members on the behaviour
+        /// </summary>
+        /// <param name="behaviour"></param>
+        static public MonoController[] FindControllers(MonoBehaviour behaviour) {
+            if(behaviour == null) { throw new InvalidMonoControllerBehaviour(); }
+
+            MonoController[] controllers = Utilities.FindReflectedFields<MonoController>(behaviour);
+            foreach(MonoController controller in controllers) {
+                controller.SetBehaviour(behaviour);
+            }
+
+            return controllers;
+        }
     }
 }
