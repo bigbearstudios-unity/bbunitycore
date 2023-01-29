@@ -87,5 +87,29 @@ namespace BBUnity.Controllers {
 
             return controllers;
         }
+
+        static public void AwakeControllers(MonoController[] controllers) {
+            foreach(MonoController controller in controllers) {
+                controller.Awake();
+            }
+        }
+
+        static public void StartControllers(MonoController[] controllers) {
+            foreach(MonoController controller in controllers) {
+                controller.Start();
+            }
+        }
+
+        static public void UpdateControllers(MonoController[] controllers) {
+            foreach(MonoController controller in controllers) {
+                controller.Update();
+            }
+        }
+
+        static public void OnDrawGizmosControllers(MonoController[] controllers) {
+            foreach(MonoController controller in controllers) {
+                controller.OnDrawGizmos();
+            }
+        }
     }
 }
