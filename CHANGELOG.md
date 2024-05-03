@@ -89,3 +89,13 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Removed ArrayUtilities
 - Removed Entire Callback namespace
 - Removed UnityExtensions
+
+## [2.0.0] - TODO
+
+### Edited
+
+- Changed the name of 'BaseBehaviour' to 'BBMonoBehaviour'
+
+### Removed 
+
+- Removed BBUnity.Controllers, due to not adding much value

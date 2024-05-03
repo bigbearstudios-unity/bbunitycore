@@ -81,22 +81,41 @@ namespace BBUnity {
          * Instantiation
          */
 
-        public static T InstantiateWithComponent<T>(GameObject original) where T : Component {
-            GameObject obj = GameObject.Instantiate<GameObject>(original);
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="prefab"></param>
+        /// <typeparam name="T"></typeparam>
+        /// <returns></returns>
+        public static T InstantiateWithComponent<T>(GameObject prefab) where T : Component {
+            GameObject obj = GameObject.Instantiate<GameObject>(prefab);
             return AddOrGetComponent<T>(obj);
         }
 
-        public static T InstantiateWithComponent<T>(GameObject original, Transform parent) where T : Component {
-            GameObject obj = GameObject.Instantiate<GameObject>(original, parent);
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="prefab"></param>
+        /// <param name="parent"></param>
+        /// <typeparam name="T"></typeparam>
+        /// <returns></returns>
+        public static T InstantiateWithComponent<T>(GameObject prefab, Transform parentTransform) where T : Component {
+            GameObject obj = GameObject.Instantiate<GameObject>(prefab, parentTransform);
             return AddOrGetComponent<T>(obj);
         }
 
-        public static T InstantiateWithComponent<T>(GameObject original, Transform parent, bool removeCloneFromName) where T : Component {
-            GameObject obj = GameObject.Instantiate<GameObject>(original, parent);
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="prefab"></param>
+        /// <param name="parent"></param>
+        /// <param name="removeCloneFromName"></param>
+        /// <typeparam name="T"></typeparam>
+        /// <returns></returns>
+        public static T InstantiateWithComponent<T>(GameObject prefab, Transform parentTransform, bool removeCloneFromName) where T : Component {
+            GameObject obj = GameObject.Instantiate<GameObject>(prefab, parentTransform);
 
-            if(removeCloneFromName) {
-                obj.name = original.name;
-            }
+            if(removeCloneFromName) { obj.name = prefab.name; }
 
             return AddOrGetComponent<T>(obj);
         }

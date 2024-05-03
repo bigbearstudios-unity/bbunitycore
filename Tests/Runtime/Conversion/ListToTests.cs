@@ -9,19 +9,19 @@ namespace Conversion {
     [Test]
     public void String_ShouldReturnStringWithDefaultSeperator_IfNoSeperatorIsPassed() {
         string result = ListTo.String(new List<string>() {
-            "join", "me"
+            "join", "me", "please"
         });
 
-        Assert.AreEqual("join-me", result);
+        Assert.AreEqual("join-me-please", result);
     }
 
     [Test]
     public void String_ShouldReturnStringWithSeperator_IfSeperatorIsPassed() {
         string result = ListTo.String(new List<string>() {
-            "join", "me"
+            "join", "me", "please"
         }, " ");
 
-        Assert.AreEqual("join me", result);
+        Assert.AreEqual("join me please", result);
     }
 }
 }
