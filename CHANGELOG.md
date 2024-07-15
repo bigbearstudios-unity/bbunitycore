@@ -90,7 +90,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Removed Entire Callback namespace
 - Removed UnityExtensions
 
-## [2.0.0] - TODO
+## [2.0.0] - N/A
 
 ### Edited
 
@@ -99,3 +99,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Removed 
 
 - Removed BBUnity.Controllers, due to not adding much value
+
+## [3.0.0] - 2024-07-15
+
+### Removed
+
+- .Conversion namespace. This has been moved to its own library which exposes the BBUnity.Conversion namespace
