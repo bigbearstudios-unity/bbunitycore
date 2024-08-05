@@ -105,3 +105,4 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Removed
 
 - .Conversion namespace. This has been moved to its own library which exposes the BBUnity.Conversion namespace
+- .Validation namespace. This has been moved to its own library which exposes the BBUnity.Validation namespace

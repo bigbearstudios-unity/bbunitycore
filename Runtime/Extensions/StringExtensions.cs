@@ -1,9 +1,5 @@
 ﻿using System.Text.RegularExpressions;
 
-/*
- * Please note that all Extensions should be part of .Extensions
- * as to not polute the BBUnity namespace
- */
 namespace BBUnity.Extensions {
     public static class StringExtensions {
 

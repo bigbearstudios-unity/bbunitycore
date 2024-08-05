@@ -1,7 +1,8 @@
 namespace BBUnity.Entities {
 
     /// <summary>
-    /// Interface representing the base Entity provider
+    /// A Base Entity within BBUnity. BBUnity specifys an 'Entity' as the following:
+    /// - Interactable in some way?
     /// </summary>
     public interface IEntity {
 
