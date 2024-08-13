@@ -106,3 +106,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - .Conversion namespace. This has been moved to its own library which exposes the BBUnity.Conversion namespace
 - .Validation namespace. This has been moved to its own library which exposes the BBUnity.Validation namespace
+
+## [4.0.0] - 2024-08-13
+
+- Removed large amount of extra functionality on BBMonoBehaviour
+- Changed ActivateGameObject / DeactivateGameObject to Activate / Deactivate
