@@ -111,3 +111,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - Removed large amount of extra functionality on BBMonoBehaviour
 - Changed ActivateGameObject / DeactivateGameObject to Activate / Deactivate
+
+## [4.0.0] - 2024-11-17
+
+- Changed the Attributes namespace to BBUnity.EditorAttributes
+

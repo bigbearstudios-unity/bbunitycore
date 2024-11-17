@@ -1,6 +1,6 @@
 {
   "name": "com.bigbearstudios.bbunity-core",
-  "version": "4.0.0",
+  "version": "5.0.0",
   "displayName": "BBUnity Core",
   "description": "Core Shared library for the BBUnity project - Requires Unity / C# to use",
   "unity": "2018.3",
