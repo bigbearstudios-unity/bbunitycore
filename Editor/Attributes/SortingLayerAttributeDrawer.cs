@@ -2,7 +2,7 @@
 using UnityEngine;
 
 namespace BBUnity.Editor {
-    [CustomPropertyDrawer(typeof(SortingLayerAttribute))]
+    [CustomPropertyDrawer(typeof(EditorAttributes.SortingLayerAttribute))]
     class SortingLayerAttributeDrawer : PropertyDrawer {
 
         private System.Reflection.MethodInfo _layerMethod = null;

@@ -106,18 +106,3 @@ namespace BBUnity {
 
 //             return toReturn.ToArray();
 //         }
-
-// TODO 
-// public static T[] FindReflectedFields<T>(object obj) {
-//     System.Reflection.BindingFlags bindingFlags = System.Reflection.BindingFlags.Instance | System.Reflection.BindingFlags.NonPublic;
-//     System.Reflection.FieldInfo[] fields = obj.GetType().GetFields(bindingFlags);
-
-//     List<T> toReturn = new List<T>();
-//     foreach(System.Reflection.FieldInfo field in fields) {
-//         if(field.FieldType.IsSubclassOf(typeof(T))){
-//             toReturn.Add((T)field.GetValue(obj));
-//         }
-//     }
-
-//     return toReturn.ToArray();
-// }

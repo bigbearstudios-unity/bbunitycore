@@ -2,7 +2,7 @@
 using UnityEngine;
 
 namespace BBUnity.Editor {
-    [CustomPropertyDrawer(typeof(ReadOnlyAttribute))]
+    [CustomPropertyDrawer(typeof(EditorAttributes.ReadOnlyAttribute))]
     public class ReadOnlyPropertyDrawer : PropertyDrawer {
 
         public override float GetPropertyHeight(SerializedProperty property, GUIContent label) {

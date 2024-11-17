@@ -3,7 +3,7 @@ using UnityEngine;
 
 using BBUnity.Extensions;
 
-namespace BBUnity {
+namespace BBUnity.Utilities {
     public class Create {
         public static GameObject GameObject(string name) {
             GameObject obj = new GameObject(name);

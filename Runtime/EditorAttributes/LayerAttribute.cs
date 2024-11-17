@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace BBUnity {
+namespace BBUnity.EditorAttributes {
     public class LayerAttribute : PropertyAttribute {
 
     }
